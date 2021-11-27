@@ -1,0 +1,147 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    background-color: $color-white;
+    border: none;
+    display: block;
+    width: 90%;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
+    &:focus {
+      // focus  means holo jokhon ami input e click korbo:
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+
+      //   jotokkhon obdi amar input e ami valid value nah diccih totokkhon obdi jate color-secondary-dark variable er value dekhay border bottom e
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-gray-dark-2;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+    -webkit-transform: translateY(-4rem);
+    -moz-transform: translateY(-4rem);
+    -ms-transform: translateY(-4rem);
+    -o-transform: translateY(-4rem);
+
+    // ar ei code gular means holo jotokkhon obdi input er placeholder thakbe totokkhon obdi label ti hidden thakbe:
+
+    // + er means hocceh je input er porer sibling ti mane eikhane input er porer sibling ti holo label:
+
+    // ar + diye mainly sibling ke select kora hoy:
+  }
+
+  &__radio-group {
+    display: inline-block;
+    width: 49%;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__radio-input {
+    visibility: hidden;
+  }
+
+  &__radio-label {
+    font-size: $default-font-size;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4.5rem;
+  }
+
+  //   for styling default radio button:
+
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+
+    display: inline-block;
+
+    position: absolute;
+    top: -0.4rem;
+    left: 0;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      background-color: $color-primary;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+      -o-transition: all 0.3s;
+    }
+  }
+
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+}

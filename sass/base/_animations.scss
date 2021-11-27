@@ -1,0 +1,48 @@
+@keyframes moveInLeft {
+  0% {
+    /* 0% holo jokhon animation ti start hobe and tokhon heading-primary-main ei text tir opacity 0 diye invisible kore dibo */
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+
+    /* animation er middle point */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+
+    /* animation er last stage mane e holo animation sesh hoaar pore kon position e thakbe */
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBtn {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

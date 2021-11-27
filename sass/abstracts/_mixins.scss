@@ -1,0 +1,48 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+//  for positiioning(mixin use kortechi karon barbar jate ekoi code nah likha lage):
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+// for responsiveness(and it's called responsive manager):
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,113 @@
+// components er moddeh button ke rakhar karon holo components er means holo amra jekono page e eita reuse korte pari!:
+// jehetu button tio amra ekek jaygay reuse korbo tai eke components er moddeh rekhe diyechi:
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    font-size: $default-font-size;
+
+    position: relative;
+
+    // for only when i use button instead of anchor tag:
+
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active,
+  &:focus {
+    /* active ei pseudo class tir means holo amra jokhon button ti teh click korbo tokhon: */
+    transform: translateY(-0.1px);
+    box-shadow: 0 0.5rem 0.1rem rgba($color-black, 0.2);
+
+    outline: none;
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-gray-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  /* pseudo element(::) */
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBtn 0.5s ease-in-out 0.75s;
+    /* eikhane 0.75s er means hocceh 0.75s porei btn er animation ti start hobe */
+
+    /* ekhon ei animation ti jate amar moveInBtn er exact 0% thekei jate start hoy tar jonne nicher line ti: */
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    text-decoration: none;
+    color: $color-primary;
+    display: inline-block;
+    border-bottom: 1px solid $color-primary;
+    padding: 0.3rem;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-0.2rem);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}
